@@ -1,0 +1,28 @@
+# Python
+venv
+__pycache__
+server/flask/__pycache__
+**/.pyc
+
+# Audio/Training data
+*.zip
+data_acquisition/data
+data_acquisition/data_aquisition_utils/data
+data_acquisition/playlists.json
+**/data
+**.wav
+**/cnn_features.json
+
+# Trained Models
+server/flask/saved_models
+
+# Logs
+server/flask/logs
+
+# Editor Stuff
+**/.idea/workspace.xml
+**/.idea/tasks.xml
+**/.vscode
+
+# Server
+*.pem

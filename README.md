@@ -1,8 +1,9 @@
 # Apollo's Ear: Music Classification across 13 genres
 ## Description
 Appolo's Ear is an ensemble of three music genre classification neural networks, a nginx server, 
-and a [simple react frontend](https://www.apollosear.com). This backend is glued together with Docker and Docker compose
-and is easily replicable by following the steps below.
+and a [simple react frontend](https://www.apollosear.com). Its backend is glued together with Docker and Docker compose
+and you can easily replicate it by following the steps below. This infrastructure can also be used for other
+sorts of online classification system.
 
 ## Project Structure
 - data_acquisition/ data acquisition and audio cleanup utility files

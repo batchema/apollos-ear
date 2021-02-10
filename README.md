@@ -3,7 +3,8 @@
 Appolo's Ear is an ensemble of three music genre classification neural networks, a nginx server, 
 and a [simple react frontend](https://www.apollosear.com). Its backend is glued together with Docker and Docker compose
 and you can easily replicate it by following the steps below. This infrastructure can also be used for other
-sorts of online classification system.
+sorts of online classification system. The goal of the project was to learn more about Tensorflow and Docker, about integrating a 
+machine learning model with a fullstack application, and about how setting up a https server with Nginx. 
 
 ## Project Structure
 - data_acquisition/ data acquisition and audio cleanup utility files

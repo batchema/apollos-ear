@@ -2,6 +2,7 @@ import os
 from os import path
 import sys
 import random
+from re import sub
 from flask import Flask, request, jsonify
 from genre_prediction_service import Genre_Prediction_Service
 from genre_prediction_service import Classifiers
@@ -40,6 +41,8 @@ def _predict(audio_file):
     """
     # Save audio file to temp file
     filename = audio_file.filename.split("/")[-1]
+    # Remove special characters from filename not to trip FFMPEG
+    filename = sub(r"[^A-Za-z0-9.]+", "", filename)
     local_path = f'{str(random.randint(0, 100000))}{filename}'
     audio_file.save(local_path)
 

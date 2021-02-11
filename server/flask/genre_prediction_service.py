@@ -4,7 +4,9 @@ import os
 import numpy as np
 import librosa
 from tensorflow.keras.models import load_model
-from statistics import multimode
+from collections import Counter
+from itertools import groupby
+from operator import itemgetter
 from enum import Enum
 
 """Constants (from training)"""
@@ -123,6 +125,24 @@ def extract_features_cnn(signal, sample_rate, start, finish):
     spec = librosa.power_to_db(spec, ref=np.max)
     spec = spec.T
     return spec[:130, :]
+
+
+def multimode(data):
+    """Return a list of the most frequently occurring values.
+
+    Will return more than one result if there are multiple modes
+    or an empty list if *data* is empty.
+
+    >>> multimode('aabbbbbbbbcc')
+    ['b']
+    >>> multimode('aabbbbccddddeeffffgg')
+    ['b', 'd', 'f']
+    >>> multimode('')
+    []
+    """
+    counts = Counter(iter(data)).most_common()
+    maxcount, mode_items = next(groupby(counts, key=itemgetter(1)), (0, []))
+    return list(map(itemgetter(0), mode_items))
 
 
 class Classifiers(Enum):

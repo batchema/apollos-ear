@@ -4,7 +4,7 @@ import os
 import numpy as np
 import librosa
 from tensorflow.keras.models import load_model
-import statistics
+from statistics import multimode
 from enum import Enum
 
 """Constants (from training)"""
@@ -171,7 +171,7 @@ class _GenrePredictionService:
             prediction = np.argmax(self.model.predict(np.expand_dims(sample, axis=0)))
             predictions.append(prediction)
         print("samples predictions done")
-        prediction = statistics.mode(predictions)
+        prediction = multimode(predictions)[0]
         return MAPPINGS[prediction]
 
     def collect_features(self, filepath):
